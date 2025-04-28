@@ -1,0 +1,123 @@
+import React, { useRef, useEffect, useState } from "react";
+import { alligator, big, useAsciiText } from "react-ascii-text";
+import "./App.css";
+import command from "./types/command";
+
+function App() {
+  const asciiTextRef = useAsciiText({
+    font: big,
+    text: "Case Zumbrum",
+    fadeInOnly: true,
+    animationLoop: false,
+  });
+
+  const [commands, setCommands] = useState<command[]>([]);
+  const [command, setCommand] = useState<string>("");
+  const [searchIndex, setSearchIndex] = useState<number>(0);
+  const scrollRef = useRef(null);
+
+  const handle_commands = (input: string): string => {
+    if (input == "clear") {
+      setCommands([]);
+    }
+    return "Error: Command not found";
+  };
+
+  const handle_key_press = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (e.key == "Enter") {
+      // execute command!!!!
+      setSearchIndex(0);
+      setCommand("");
+      setCommands((prevstate) => [
+        ...prevstate,
+        { input: command, output: handle_commands(command) },
+      ]);
+    } else if (e.key == "Backspace") {
+      setCommand((prevstate) => prevstate.substring(0, prevstate.length - 1));
+    } else if (e.key == "ArrowUp") {
+      if (commands.length > searchIndex) {
+        setSearchIndex((prevstate) => prevstate + 1);
+        setCommand(commands[commands.length - searchIndex - 1].input);
+      }
+    } else if (e.key == "ArrowDown") {
+      if (searchIndex > 0) {
+        setSearchIndex((prevstate) => prevstate - 1);
+        if (searchIndex == 1) {
+          setCommand("");
+        } else {
+          setCommand(commands[commands.length - searchIndex + 1].input);
+        }
+      }
+    } else {
+      setCommand((prevstate) => prevstate + e.key);
+    }
+  };
+
+  useEffect(() => {
+    console.log(commands);
+    if (scrollRef.current) {
+      scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
+    }
+  }, [commands]);
+
+  useEffect(() => {
+    console.log(command);
+  }, [command]);
+
+  return (
+    <div tabIndex={0} className="app" onKeyDown={handle_key_press}>
+      <div className="app-left">
+        <pre ref={asciiTextRef}></pre>
+        <div className="left-intro">
+          <span style={{ color: "#c0a000" }}>$</span>&nbsp;cat whoami.txt
+          <div className="intro-body">
+            <span>- Second year Computer Engineering student at UF</span>
+            <span>
+              - Researcher with IoT4Ag (Internet of Things for Agriculture) at
+              UF
+            </span>
+            <span>- Teaching Assistant for Programming 1 (COP3502C)</span>
+            <span>- Creator/maintainer of GatorGuide</span>
+          </div>
+        </div>
+        <div className="left-contacts">
+          <span style={{ color: "#c0a000" }}>$</span>&nbsp;cat contacts.txt
+          <div className="contacts-links">
+            <a href={"https://github.com/CaseZumbrum"}>GitHub</a>
+            <a href={"https://linkedin.com/in/case-zumbrum"}>LinkedIn</a>
+            <a href={"casezumbrum@ufl.edu"}>Email</a>
+            <a
+              href={
+                "https://docs.google.com/document/d/1MOTXNbck3oeZoYUyFrlqaqhfbghRPDtDoLcmGVzJUS0/pub"
+              }
+            >
+              Resume
+            </a>
+            <a href="https://casezumbrum.com">
+              Non-CLI Portfolio (if you do not understand this one)
+            </a>
+          </div>
+        </div>
+      </div>
+      <div className="app-right" ref={scrollRef}>
+        {commands.map((command, index) => (
+          <div key={index} className="right-oldcommand">
+            <div>
+              <span style={{ color: "#c0a000" }}>$</span>&nbsp;
+              <span>{command.input}</span>
+            </div>
+            <span>{command.output}</span>
+          </div>
+        ))}
+        <div className="right-command">
+          <div>
+            <span style={{ color: "#c0a000" }}>$</span>&nbsp;{command}
+          </div>
+          <div className="blink-box">&#9608;</div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default App;

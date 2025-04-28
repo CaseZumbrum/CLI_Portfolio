@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+.app {
+  font-family: "VT323", monospace;
+  font-weight: 400;
+  font-style: normal;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background-color: black;
+  color: #cccccc;
+  padding: 10px;
+  display: flex;
+  flex-flow: row;
+}
+
+.app-right{
+  margin-left: auto;
+  flex-flow: column;
+  width: 40%;
+  overflow: auto;
+  scrollbar-width: none;
+}
+
+
+.right-oldcommand{
+  display: flex;
+  flex-flow: column;
+}
+
+.app-left{
+  display: flex;
+  flex-flow: column;
+}
+
+.contacts-links{
+  display: flex;
+  flex-flow: column;
+}
+
+.intro-body{
+  display: flex;
+  flex-flow: column; 
+}
+
+.contacts-links a{
+  color: #14a800;
+}
+
+.right-command{
+  display: flex;
+  flex-flow: row;
+}
+
+.blink-box {
+  animation: blink 1.5s steps(1, end) infinite;
+}
+
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
