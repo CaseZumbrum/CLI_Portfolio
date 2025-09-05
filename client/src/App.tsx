@@ -190,7 +190,7 @@ function App() {
           >
             Work
           </button>
-          {isMobile && (
+          {!isMobile && (
             <button
               style={{
                 color: tab == "console" ? "black" : undefined,
