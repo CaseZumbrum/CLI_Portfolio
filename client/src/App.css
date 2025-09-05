@@ -122,4 +122,7 @@ button:hover{
 .left__ascii{
   font-size: 0.7rem;
 }
+.console__button{
+  visibility: hidden;
+}
 }

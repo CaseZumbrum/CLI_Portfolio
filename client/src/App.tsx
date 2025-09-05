@@ -207,6 +207,7 @@ function App() {
           </button>
           {!isMobile && (
             <button
+              className="console__button"
               style={{
                 color: tab == "console" ? "black" : undefined,
                 backgroundColor: tab == "console" ? "#cccccc" : undefined,
