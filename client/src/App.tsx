@@ -10,7 +10,7 @@ import job from "./types/job";
 function App() {
   const asciiTextRef = useAsciiText({
     font: big,
-    text: "Case Zumbrum",
+    text: "Cat Zumbrum",
     fadeInOnly: true,
     animationLoop: false,
   });
