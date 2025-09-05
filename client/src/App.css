@@ -32,17 +32,18 @@ button:hover{
 .app-right{
   margin-left: 20px;
   flex-flow: column;
-  width: 40%;
-  overflow: auto;
+  overflow-x: hidden;
+  width: 60%;
   scrollbar-width: none;
 }
 
 .right__buttons{
   position: absolute;
   background-color: black;
-  width: 100%;
+  width: 55%;
   display: flex;
   flex-flow: row;
+  overflow: clip;
 }
 
 .console{
