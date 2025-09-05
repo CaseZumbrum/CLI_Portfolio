@@ -33,6 +33,9 @@ function App() {
     }
   };
 
+  const a: HTMLAudioElement = new Audio("/meow.mp3");
+  const r: HTMLAudioElement = new Audio("/static/audio/rats.mp3");
+
   // create an event listener
   useEffect(() => {
     window.addEventListener("resize", handleResize);
@@ -45,8 +48,22 @@ function App() {
     }
     if (input == "cat") {
       setCat(!cat);
-      setName("Cat\nZumbrum");
+      a.play();
       return "meow";
+    }
+    if (input == "rats") {
+      r.play();
+      return `&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_..----.._&nbsp;&nbsp;&nbsp;&nbsp;_<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.'&nbsp;&nbsp;.--.&nbsp;&nbsp;&nbsp;&nbsp;"-.(0)_<br>
+'-.__.-'"'=:|&nbsp;&nbsp;&nbsp;,&nbsp;&nbsp;_)_&nbsp;\__&nbsp;.&nbsp;c\'-..<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'''------'---''---'-"<br>`;
+    }
+    if (input == "vectors") {
+      window.open("/project_pages/vector_fields.html", "_blank");
+      return "So you think you can field?";
+    } else if (input == "deep") {
+      window.open("/project_pages/miner.html", "_blank");
+      return "Good luck miner!";
     }
     return "Error: Command not found";
   };
@@ -137,13 +154,10 @@ function App() {
             <a href={"casezumbrum@ufl.edu"}>Email</a>
             <a
               href={
-                "https://docs.google.com/document/d/1MOTXNbck3oeZoYUyFrlqaqhfbghRPDtDoLcmGVzJUS0/pub"
+                "https://docs.google.com/document/d/1MOTXNbck3oeZoYUyFrlqaqhfbghRPDtDoLcmGVzJUS0/edit?usp=sharing"
               }
             >
               Resume
-            </a>
-            <a href="https://casezumbrum.com">
-              Non-CLI Portfolio (if you do not understand this one)
             </a>
           </div>
         </div>
@@ -172,17 +186,19 @@ function App() {
           >
             Work
           </button>
-          <button
-            style={{
-              color: tab == "console" ? "black" : undefined,
-              backgroundColor: tab == "console" ? "#cccccc" : undefined,
-            }}
-            onClick={() => {
-              setTab("console");
-            }}
-          >
-            Console
-          </button>
+          {!isMobile && (
+            <button
+              style={{
+                color: tab == "console" ? "black" : undefined,
+                backgroundColor: tab == "console" ? "#cccccc" : undefined,
+              }}
+              onClick={() => {
+                setTab("console");
+              }}
+            >
+              Console
+            </button>
+          )}
         </div>
         {tab == "projects" && <Project_Tab projects={projects}></Project_Tab>}
         {tab == "work" && <Job_Tab jobs={jobs}></Job_Tab>}
@@ -194,7 +210,9 @@ function App() {
                   <span style={{ color: "#c0a000" }}>$</span>&nbsp;
                   <span>{command.input}</span>
                 </div>
-                <span>{command.output}</span>
+                <span
+                  dangerouslySetInnerHTML={{ __html: command.output }}
+                ></span>
               </div>
             ))}
             <div className="right-command">
