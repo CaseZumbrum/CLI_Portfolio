@@ -2,6 +2,10 @@ import React, { useRef, useEffect, useState } from "react";
 import { alligator, big, useAsciiText } from "react-ascii-text";
 import "./App.css";
 import command from "./types/command";
+import Project_Tab from "./components/project_tab";
+import Job_Tab from "./components/job_tab";
+import project from "./types/project";
+import job from "./types/job";
 
 function App() {
   const asciiTextRef = useAsciiText({
@@ -13,8 +17,11 @@ function App() {
 
   const [commands, setCommands] = useState<command[]>([]);
   const [command, setCommand] = useState<string>("");
+  const [tab, setTab] = useState<string>("projects");
   const [searchIndex, setSearchIndex] = useState<number>(0);
   const scrollRef = useRef(null);
+  const [projects, setProjects] = useState<project[]>([]);
+  const [jobs, setJobs] = useState<job[]>([]);
 
   const handle_commands = (input: string): string => {
     if (input == "clear") {
@@ -24,6 +31,9 @@ function App() {
   };
 
   const handle_key_press = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (tab != "console") {
+      return;
+    }
     if (e.key == "Enter") {
       // execute command!!!!
       setSearchIndex(0);
@@ -64,6 +74,24 @@ function App() {
     console.log(command);
   }, [command]);
 
+  useEffect(() => {
+    fetch("http://casezumbrum.com" + "/work").then((response) => {
+      response.json().then((jobs) => {
+        console.log(jobs);
+        setJobs(jobs);
+      });
+    });
+  }, []);
+
+  useEffect(() => {
+    fetch("http://casezumbrum.com" + "/projects").then((response) => {
+      response.json().then((projects) => {
+        console.log(projects);
+        setProjects(projects);
+      });
+    });
+  }, []);
+
   return (
     <div tabIndex={0} className="app" onKeyDown={handle_key_press}>
       <div className="app-left">
@@ -100,21 +128,62 @@ function App() {
         </div>
       </div>
       <div className="app-right" ref={scrollRef}>
-        {commands.map((command, index) => (
-          <div key={index} className="right-oldcommand">
-            <div>
-              <span style={{ color: "#c0a000" }}>$</span>&nbsp;
-              <span>{command.input}</span>
-            </div>
-            <span>{command.output}</span>
-          </div>
-        ))}
-        <div className="right-command">
-          <div>
-            <span style={{ color: "#c0a000" }}>$</span>&nbsp;{command}
-          </div>
-          <div className="blink-box">&#9608;</div>
+        <div className="right__buttons">
+          <button
+            style={{
+              color: tab == "projects" ? "black" : undefined,
+              backgroundColor: tab == "projects" ? "#cccccc" : undefined,
+            }}
+            onClick={() => {
+              setTab("projects");
+            }}
+          >
+            Projects
+          </button>
+          <button
+            style={{
+              color: tab == "work" ? "black" : undefined,
+              backgroundColor: tab == "work" ? "#cccccc" : undefined,
+            }}
+            onClick={() => {
+              setTab("work");
+            }}
+          >
+            Work
+          </button>
+          <button
+            style={{
+              color: tab == "console" ? "black" : undefined,
+              backgroundColor: tab == "console" ? "#cccccc" : undefined,
+            }}
+            onClick={() => {
+              setTab("console");
+            }}
+          >
+            Console
+          </button>
         </div>
+        {tab == "projects" && <Project_Tab projects={projects}></Project_Tab>}
+        {tab == "work" && <Job_Tab jobs={jobs}></Job_Tab>}
+        {tab == "console" && (
+          <div className="console">
+            {commands.map((command, index) => (
+              <div key={index} className="right-oldcommand">
+                <div>
+                  <span style={{ color: "#c0a000" }}>$</span>&nbsp;
+                  <span>{command.input}</span>
+                </div>
+                <span>{command.output}</span>
+              </div>
+            ))}
+            <div className="right-command">
+              <div>
+                <span style={{ color: "#c0a000" }}>$</span>&nbsp;{command}
+              </div>
+              <div className="blink-box">&#9608;</div>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

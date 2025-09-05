@@ -13,12 +13,40 @@
   flex-flow: row;
 }
 
+button{
+  font-family: "VT323", monospace;
+  font-weight: 400;
+  font-style: normal;
+  color: #cccccc;
+  font-size: 1.2rem;
+  background-color: black;
+  border: none;
+  border-bottom: 1px solid #cccccc;
+}
+
+button:hover{
+  background-color: #cccccc;
+  color: black
+}
+
 .app-right{
-  margin-left: auto;
+  margin-left: 20px;
   flex-flow: column;
   width: 40%;
   overflow: auto;
   scrollbar-width: none;
+}
+
+.right__buttons{
+  position: absolute;
+  background-color: black;
+  width: 100%;
+  display: flex;
+  flex-flow: row;
+}
+
+.console{
+  margin-top: 40px;
 }
 
 
@@ -30,6 +58,8 @@
 .app-left{
   display: flex;
   flex-flow: column;
+  padding-right: 20px;
+  border-right: 1px solid #cccccc;
 }
 
 .contacts-links{
@@ -59,4 +89,24 @@
   0% { opacity: 1; }
   50% { opacity: 0; }
   100% { opacity: 1; }
+}
+
+@media screen and (max-width: 600px) {
+  .app {
+      flex-flow: column;
+      overflow: scroll;
+
+
+  }
+  .app-left{
+    border: none;
+    border-bottom: 1px solid #cccccc;
+  }
+  .app-right{
+  width: 100%;
+  overflow: visible;
+}
+.right__buttons{
+  position: relative;
+}
 }

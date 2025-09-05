@@ -1,0 +1,27 @@
+.project__title{
+    font-size: 1.5rem;
+}
+.project__body{
+    padding-left: 30px;
+}
+
+.project__source{
+    padding-left: 30px;
+}
+
+.project__demo{
+    padding-left: 30px;
+}
+
+.project__linkline{
+    padding-left: 30px;
+}
+
+.projects{
+    display: flex;
+    flex-flow: column;
+}
+
+.projects a{
+  color: #14a800;
+}
