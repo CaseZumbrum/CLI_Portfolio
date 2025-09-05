@@ -63,6 +63,7 @@ button:hover{
   border-right: 1px solid #cccccc;
 }
 
+
 .contacts-links{
   display: flex;
   flex-flow: column;
@@ -109,5 +110,8 @@ button:hover{
 }
 .right__buttons{
   position: relative;
+}
+.left__ascii{
+  font-size: 0.7rem;
 }
 }

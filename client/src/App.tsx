@@ -110,7 +110,7 @@ function App() {
   return (
     <div tabIndex={0} className="app" onKeyDown={handle_key_press}>
       <div className="app-left">
-        <pre ref={asciiTextRef}></pre>
+        <pre className="left__ascii" ref={asciiTextRef}></pre>
         <div className="left-intro">
           <span style={{ color: "#c0a000" }}>$</span>&nbsp;cat whoami.txt
           <div className="intro-body">
