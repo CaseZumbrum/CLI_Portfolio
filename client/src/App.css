@@ -76,6 +76,7 @@ button:hover{
 
 .contacts-links a{
   color: #14a800;
+  width: max-content;
 }
 
 .right-command{
