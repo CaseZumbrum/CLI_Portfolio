@@ -159,16 +159,25 @@ function App() {
         <div className="left-contacts">
           <span style={{ color: "#c0a000" }}>$</span>&nbsp;cat contacts.txt
           <div className="contacts-links">
-            <a href={"https://github.com/CaseZumbrum"}>GitHub</a>
-            <a href={"https://linkedin.com/in/case-zumbrum"}>LinkedIn</a>
-            <a href={"mailto:casezumbrum@ufl.edu"}>Email</a>
-            <a
-              href={
-                "https://docs.google.com/document/d/1MOTXNbck3oeZoYUyFrlqaqhfbghRPDtDoLcmGVzJUS0/edit?usp=sharing"
-              }
-            >
-              Resume
-            </a>
+            <span className="links__item">
+              * <a href={"https://github.com/CaseZumbrum"}>GitHub</a>
+            </span>
+            <span className="links__item">
+              * <a href={"https://linkedin.com/in/case-zumbrum"}>LinkedIn</a>
+            </span>
+            <span className="links__item">
+              * <a href={"mailto:casezumbrum@ufl.edu"}>Email</a>
+            </span>
+            <span className="links__item">
+              *{" "}
+              <a
+                href={
+                  "https://docs.google.com/document/d/1MOTXNbck3oeZoYUyFrlqaqhfbghRPDtDoLcmGVzJUS0/edit?usp=sharing"
+                }
+              >
+                Resume
+              </a>
+            </span>
           </div>
         </div>
       </div>

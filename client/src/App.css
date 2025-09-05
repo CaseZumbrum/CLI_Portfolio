@@ -76,9 +76,12 @@ button:hover{
 }
 
 .contacts-links a{
-  padding-left: 10px;
   color: #14a800;
   width: max-content;
+}
+.links__item{
+  padding-left: 10px;
+
 }
 
 .right-command{
