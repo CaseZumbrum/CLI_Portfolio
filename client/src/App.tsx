@@ -45,25 +45,24 @@ function App() {
     if (input == "clear") {
       setCommands([]);
       return "";
-    }
-    if (input == "cat") {
+    } else if (input == "cat") {
       setCat(!cat);
       a.play();
       return "meow";
-    }
-    if (input == "rats") {
+    } else if (input == "rats") {
       r.play();
       return `&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_..----.._&nbsp;&nbsp;&nbsp;&nbsp;_<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.'&nbsp;&nbsp;.--.&nbsp;&nbsp;&nbsp;&nbsp;"-.(0)_<br>
 '-.__.-'"'=:|&nbsp;&nbsp;&nbsp;,&nbsp;&nbsp;_)_&nbsp;\__&nbsp;.&nbsp;c\'-..<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'''------'---''---'-"<br>`;
-    }
-    if (input == "vectors") {
+    } else if (input == "vectors") {
       window.open("/project_pages/vector_fields.html", "_blank");
       return "So you think you can field?";
     } else if (input == "deep") {
       window.open("/project_pages/miner.html", "_blank");
       return "Good luck miner!";
+    } else if (input == "help") {
+      return "This is a command line interface for various secrets hidden on this site<br>Happy hunting!";
     }
     return "Error: Command not found";
   };
