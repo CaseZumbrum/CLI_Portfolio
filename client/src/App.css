@@ -70,11 +70,13 @@ button:hover{
 }
 
 .intro-body{
+  padding-left: 10px;
   display: flex;
   flex-flow: column; 
 }
 
 .contacts-links a{
+  padding-left: 10px;
   color: #14a800;
   width: max-content;
 }

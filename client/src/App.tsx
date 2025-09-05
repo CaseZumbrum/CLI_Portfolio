@@ -149,13 +149,19 @@ function App() {
             <span>- Hardware Design</span>
             <span>- Embedded Development</span>
           </div>
+          <span style={{ color: "#c0a000" }}>$</span>&nbsp;cat contributions.txt
+          <div className="intro-body">
+            <span>- CPython Contributor</span>
+            <span>- GatorGuide Creator/Maintainer</span>
+            <span>- EcholoGator Contributor</span>
+          </div>
         </div>
         <div className="left-contacts">
           <span style={{ color: "#c0a000" }}>$</span>&nbsp;cat contacts.txt
           <div className="contacts-links">
             <a href={"https://github.com/CaseZumbrum"}>GitHub</a>
             <a href={"https://linkedin.com/in/case-zumbrum"}>LinkedIn</a>
-            <a href={"casezumbrum@ufl.edu"}>Email</a>
+            <a href={"mailto:casezumbrum@ufl.edu"}>Email</a>
             <a
               href={
                 "https://docs.google.com/document/d/1MOTXNbck3oeZoYUyFrlqaqhfbghRPDtDoLcmGVzJUS0/edit?usp=sharing"
