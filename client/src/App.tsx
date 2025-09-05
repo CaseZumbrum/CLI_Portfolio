@@ -10,7 +10,7 @@ import job from "./types/job";
 function App() {
   const asciiTextRef = useAsciiText({
     font: big,
-    text: "Case Zumbrum",
+    text: "Case\n Zumbrum",
     fadeInOnly: true,
     animationLoop: false,
   });
@@ -22,6 +22,21 @@ function App() {
   const scrollRef = useRef(null);
   const [projects, setProjects] = useState<project[]>([]);
   const [jobs, setJobs] = useState<job[]>([]);
+  const [isMobile, setIsMobile] = useState(false);
+
+  //choose the screen size
+  const handleResize = () => {
+    if (window.innerWidth < 720) {
+      setIsMobile(true);
+    } else {
+      setIsMobile(false);
+    }
+  };
+
+  // create an event listener
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+  });
 
   const handle_commands = (input: string): string => {
     if (input == "clear") {
