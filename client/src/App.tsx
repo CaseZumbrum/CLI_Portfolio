@@ -75,7 +75,7 @@ function App() {
   }, [command]);
 
   useEffect(() => {
-    fetch("http://casezumbrum.com" + "/work").then((response) => {
+    fetch("https://casezumbrum.com" + "/work").then((response) => {
       response.json().then((jobs) => {
         console.log(jobs);
         setJobs(jobs);
@@ -84,7 +84,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    fetch("http://casezumbrum.com" + "/projects").then((response) => {
+    fetch("https://casezumbrum.com" + "/projects").then((response) => {
       response.json().then((projects) => {
         console.log(projects);
         setProjects(projects);
