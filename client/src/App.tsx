@@ -161,21 +161,6 @@ function App() {
           <div className="contacts-links">
             <span className="links__item">
               *{" "}
-              <a href={"https://github.com/CaseZumbrum"} target="_blank">
-                GitHub
-              </a>
-            </span>
-            <span className="links__item">
-              *{" "}
-              <a href={"https://linkedin.com/in/case-zumbrum"} target="_blank">
-                LinkedIn
-              </a>
-            </span>
-            <span className="links__item">
-              * <a href={"mailto:casezumbrum@ufl.edu"}>Email</a>
-            </span>
-            <span className="links__item">
-              *{" "}
               <a
                 href={
                   "https://docs.google.com/document/d/1MOTXNbck3oeZoYUyFrlqaqhfbghRPDtDoLcmGVzJUS0/edit?usp=sharing"
@@ -185,6 +170,22 @@ function App() {
                 Resume
               </a>
             </span>
+            <span className="links__item">
+              *{" "}
+              <a href={"https://github.com/CaseZumbrum"} target="_blank">
+                GitHub
+              </a>
+            </span>
+            <span className="links__item">
+              * <a href={"mailto:casezumbrum@ufl.edu"}>Email</a>
+            </span>
+            <span className="links__item">
+              *{" "}
+              <a href={"https://linkedin.com/in/case-zumbrum"} target="_blank">
+                LinkedIn
+              </a>
+            </span>
+
             {/* <span className="links__item">
               *{" "}
               <a
