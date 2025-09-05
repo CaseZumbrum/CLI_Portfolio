@@ -160,10 +160,16 @@ function App() {
           <span style={{ color: "#c0a000" }}>$</span>&nbsp;cat contacts.txt
           <div className="contacts-links">
             <span className="links__item">
-              * <a href={"https://github.com/CaseZumbrum"}>GitHub</a>
+              *{" "}
+              <a href={"https://github.com/CaseZumbrum"} target="_blank">
+                GitHub
+              </a>
             </span>
             <span className="links__item">
-              * <a href={"https://linkedin.com/in/case-zumbrum"}>LinkedIn</a>
+              *{" "}
+              <a href={"https://linkedin.com/in/case-zumbrum"} target="_blank">
+                LinkedIn
+              </a>
             </span>
             <span className="links__item">
               * <a href={"mailto:casezumbrum@ufl.edu"}>Email</a>
@@ -174,10 +180,20 @@ function App() {
                 href={
                   "https://docs.google.com/document/d/1MOTXNbck3oeZoYUyFrlqaqhfbghRPDtDoLcmGVzJUS0/edit?usp=sharing"
                 }
+                target="_blank"
               >
                 Resume
               </a>
             </span>
+            {/* <span className="links__item">
+              *{" "}
+              <a
+                href={"https://www.img.ufl.edu/people/case-zumbrum"}
+                target="_blank"
+              >
+                Interdisciplinary Microsystems Group (IMG)
+              </a>
+            </span> */}
           </div>
         </div>
       </div>
