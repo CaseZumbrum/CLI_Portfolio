@@ -8,13 +8,6 @@ import project from "./types/project";
 import job from "./types/job";
 
 function App() {
-  const asciiTextRef = useAsciiText({
-    font: big,
-    text: "Case\n Zumbrum",
-    fadeInOnly: true,
-    animationLoop: false,
-  });
-
   const [commands, setCommands] = useState<command[]>([]);
   const [command, setCommand] = useState<string>("");
   const [tab, setTab] = useState<string>("projects");
@@ -23,7 +16,14 @@ function App() {
   const [projects, setProjects] = useState<project[]>([]);
   const [jobs, setJobs] = useState<job[]>([]);
   const [isMobile, setIsMobile] = useState(false);
-
+  const [cat, setCat] = useState<boolean>(false);
+  const [name, setName] = useState<string>("Case\nZumbrum");
+  const asciiTextRef = useAsciiText({
+    font: big,
+    text: name,
+    fadeInOnly: true,
+    animationLoop: false,
+  });
   //choose the screen size
   const handleResize = () => {
     if (window.innerWidth < 720) {
@@ -41,6 +41,12 @@ function App() {
   const handle_commands = (input: string): string => {
     if (input == "clear") {
       setCommands([]);
+      return "";
+    }
+    if (input == "cat") {
+      setCat(!cat);
+      setName("Cat\nZumbrum");
+      return "meow";
     }
     return "Error: Command not found";
   };
@@ -110,7 +116,7 @@ function App() {
   return (
     <div tabIndex={0} className="app" onKeyDown={handle_key_press}>
       <div className="app-left">
-        <pre className="left__ascii" ref={asciiTextRef}></pre>
+        <pre key={name} className="left__ascii" ref={asciiTextRef}></pre>
         <div className="left-intro">
           <span style={{ color: "#c0a000" }}>$</span>&nbsp;cat whoami.txt
           <div className="intro-body">

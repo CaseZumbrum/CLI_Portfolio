@@ -40,7 +40,7 @@ button:hover{
 .right__buttons{
   position: absolute;
   background-color: black;
-  width: 55%;
+  width: 60%;
   display: flex;
   flex-flow: row;
   overflow: clip;
