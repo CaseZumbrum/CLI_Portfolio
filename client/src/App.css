@@ -103,8 +103,10 @@ button:hover{
   .app-left{
     border: none;
     border-bottom: 1px solid #cccccc;
+    padding-bottom: 10px;
   }
   .app-right{
+    padding-top: 10px;
   width: 100%;
   overflow: visible;
 }
