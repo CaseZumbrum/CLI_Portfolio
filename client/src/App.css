@@ -30,7 +30,7 @@ button:hover{
 }
 
 .app-right{
-  margin-left: 20px;
+  padding-left: 20px;
   flex-flow: column;
   overflow-x: hidden;
   width: 60%;
