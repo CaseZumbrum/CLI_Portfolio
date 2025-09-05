@@ -136,13 +136,18 @@ function App() {
         <div className="left-intro">
           <span style={{ color: "#c0a000" }}>$</span>&nbsp;cat whoami.txt
           <div className="intro-body">
-            <span>- Second year Computer Engineering student at UF</span>
+            <span>- Third year Computer Engineering student at UF</span>
             <span>
               - Researcher with IoT4Ag (Internet of Things for Agriculture) at
               UF
             </span>
             <span>- Teaching Assistant for Programming 1 (COP3502C)</span>
-            <span>- Creator/maintainer of GatorGuide</span>
+          </div>
+          <span style={{ color: "#c0a000" }}>$</span>&nbsp;cat interests.txt
+          <div className="intro-body">
+            <span>- Signal Processing</span>
+            <span>- Hardware Design</span>
+            <span>- Embedded Development</span>
           </div>
         </div>
         <div className="left-contacts">
@@ -185,7 +190,7 @@ function App() {
           >
             Work
           </button>
-          {!isMobile && (
+          {isMobile && (
             <button
               style={{
                 color: tab == "console" ? "black" : undefined,
