@@ -26,3 +26,9 @@
 .projects a{
   color: #14a800;
 }
+
+@media screen and (max-width: 600px) {
+.jobs__title{
+  font-size: 0.6rem;
+}
+}
