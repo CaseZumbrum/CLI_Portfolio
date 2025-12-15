@@ -63,6 +63,14 @@ function App() {
       return "Good luck miner!";
     } else if (input == "help") {
       return "This is a command line interface for various secrets hidden on this site<br>Happy hunting!";
+    } else {
+      fetch("https://casezumbrum.com" + "/project_pages/" + input).then(
+        (response) => {
+          response.json().then((res) => {
+            console.log(res);
+          });
+        }
+      );
     }
     return "Error: Command not found";
   };
