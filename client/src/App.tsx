@@ -70,6 +70,7 @@ function App() {
           if (response.status == 200) {
             window.open("/project_pages/" + input, "_blank");
             success = true;
+            console.log("here", success);
           }
         }
       );
@@ -123,7 +124,7 @@ function App() {
   useEffect(() => {}, [command]);
 
   useEffect(() => {
-    console.log("v3");
+    console.log("v4");
     fetch("https://casezumbrum.com" + "/work").then((response) => {
       response.json().then((jobs) => {
         console.log(jobs);
