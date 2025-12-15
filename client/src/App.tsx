@@ -76,6 +76,7 @@ function App() {
       if (success) {
         return "Downloading";
       }
+      console.log("hello", success);
     }
     return "Error: Command not found";
   };
@@ -114,17 +115,15 @@ function App() {
   };
 
   useEffect(() => {
-    console.log(commands);
     if (scrollRef.current) {
       scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
     }
   }, [commands]);
 
-  useEffect(() => {
-    console.log(command);
-  }, [command]);
+  useEffect(() => {}, [command]);
 
   useEffect(() => {
+    console.log("v3");
     fetch("https://casezumbrum.com" + "/work").then((response) => {
       response.json().then((jobs) => {
         console.log(jobs);
