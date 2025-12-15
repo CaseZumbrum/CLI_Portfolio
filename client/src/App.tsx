@@ -66,9 +66,9 @@ function App() {
     } else {
       fetch("https://casezumbrum.com" + "/project_pages/" + input).then(
         (response) => {
-          response.json().then((res) => {
-            console.log(res);
-          });
+          if (response.status == 200) {
+            window.open("/project_pages/" + input, "_blank");
+          }
         }
       );
     }
