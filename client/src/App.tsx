@@ -68,6 +68,7 @@ function App() {
         (response) => {
           if (response.status == 200) {
             window.open("/project_pages/" + input, "_blank");
+            return "Downloading";
           }
         }
       );
@@ -103,7 +104,7 @@ function App() {
           setCommand(commands[commands.length - searchIndex + 1].input);
         }
       }
-    } else {
+    } else if (e.key != "Shift") {
       setCommand((prevstate) => prevstate + e.key);
     }
   };
