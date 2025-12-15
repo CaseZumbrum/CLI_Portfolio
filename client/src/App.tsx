@@ -64,20 +64,13 @@ function App() {
     } else if (input == "help") {
       return "This is a command line interface for various secrets hidden on this site<br>Happy hunting!";
     } else {
-      let success = false;
       fetch("https://casezumbrum.com" + "/project_pages/" + input).then(
         (response) => {
           if (response.status == 200) {
             window.open("/project_pages/" + input, "_blank");
-            success = true;
-            console.log("here", success);
           }
         }
       );
-      if (success) {
-        return "Downloading";
-      }
-      console.log("hello", success);
     }
     return "Error: Command not found";
   };
