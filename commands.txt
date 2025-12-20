@@ -1,0 +1,1 @@
+fastapi run --port 3001 cicd.py
