@@ -69,7 +69,7 @@ function App() {
           if (response.status == 200) {
             window.open("/project_pages/" + input, "_blank");
           }
-        }
+        },
       );
     }
     return "Error: Command not found";
@@ -142,12 +142,12 @@ function App() {
         <div className="left-intro">
           <span style={{ color: "#c0a000" }}>$</span>&nbsp;cat whoami.txt
           <div className="intro-body">
-            <span>- Third year Computer Engineering student at UF</span>
+            <span>- Fourth year Computer Engineering student at UF</span>
+            <span>- Graduating May 2026</span>
             <span>
               - Researcher with IoT4Ag (Internet of Things for Agriculture) at
               UF
             </span>
-            <span>- Teaching Assistant for Programming 1 (COP3502C)</span>
           </div>
           <span style={{ color: "#c0a000" }}>$</span>&nbsp;cat interests.txt
           <div className="intro-body">
