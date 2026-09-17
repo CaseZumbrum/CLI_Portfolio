@@ -64,7 +64,7 @@ function App() {
     } else if (input == "help") {
       return "This is a command line interface for various secrets hidden on this site<br>Happy hunting!";
     } else {
-      fetch("https://casezumbrum.com" + "/project_pages/" + input).then(
+      fetch(window.location.origin + "/project_pages/" + input).then(
         (response) => {
           if (response.status == 200) {
             window.open("/project_pages/" + input, "_blank");
@@ -118,7 +118,7 @@ function App() {
 
   useEffect(() => {
     console.log("v4");
-    fetch("https://casezumbrum.com" + "/work").then((response) => {
+    fetch(window.location.origin + "/work").then((response) => {
       response.json().then((jobs) => {
         console.log(jobs);
         setJobs(jobs);
@@ -127,7 +127,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    fetch("https://casezumbrum.com" + "/projects").then((response) => {
+    fetch(window.location.origin + "/projects").then((response) => {
       response.json().then((projects) => {
         console.log(projects);
         setProjects(projects);
